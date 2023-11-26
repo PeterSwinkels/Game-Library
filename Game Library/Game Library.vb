@@ -159,8 +159,7 @@ Public Module GameLibraryModule
             LibraryPath = Console.ReadLine()
          End If
 
-         If LibraryPath.StartsWith("""") Then LibraryPath = LibraryPath.Substring(1)
-         If LibraryPath.EndsWith("""") Then LibraryPath = LibraryPath.Substring(0, LibraryPath.Length - 1)
+         LibraryPath = LibraryPath.Trim(""""c)
 
          If Not LibraryPath = Nothing Then
             If LibraryPath.EndsWith("\*") Then
