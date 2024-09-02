@@ -71,7 +71,18 @@ Public Module GameLibraryModule
 
          Console.WriteLine($"{Files.Count} file(s) added.")
       Catch ExceptionO As Exception
-         HandleError(ExceptionO)
+         DisplayError(ExceptionO)
+      End Try
+   End Sub
+
+   'This procedure displays any errors that occur.
+   Private Sub DisplayError(ExceptionO As Exception)
+      Try
+         Console.Error.WriteLine("Error:")
+         Console.Error.WriteLine(ExceptionO.Message)
+         Console.Error.WriteLine()
+      Catch
+         [Exit](0)
       End Try
    End Sub
 
@@ -91,7 +102,7 @@ Public Module GameLibraryModule
             End If
          End Using
       Catch ExceptionO As Exception
-         HandleError(ExceptionO)
+         DisplayError(ExceptionO)
       End Try
    End Sub
 
@@ -125,18 +136,7 @@ Public Module GameLibraryModule
 
          Console.WriteLine($"{FileCount} file(s) extracted.")
       Catch ExceptionO As Exception
-         HandleError(ExceptionO)
-      End Try
-   End Sub
-
-   'This procedure handles any errors that occur.
-   Private Sub HandleError(ExceptionO As Exception)
-      Try
-         Console.WriteLine("Error:")
-         Console.WriteLine(ExceptionO.Message)
-         Console.WriteLine()
-      Catch
-         [Exit](0)
+         DisplayError(ExceptionO)
       End Try
    End Sub
 
@@ -184,7 +184,7 @@ Public Module GameLibraryModule
             End If
          End If
       Catch ExceptionO As Exception
-         HandleError(ExceptionO)
+         DisplayError(ExceptionO)
       End Try
    End Sub
 End Module
